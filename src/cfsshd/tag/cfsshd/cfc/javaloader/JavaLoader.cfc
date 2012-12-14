@@ -17,8 +17,6 @@ Purpose:    Utlitity class for loading Java Classes
 	instance.static.uuid = "A0608BEC-0AEB-B46A-0E1E1EC5F3CE7C9C";
 </cfscript>
 
-<cfimport taglib="tags" prefix="jl">
-
 <!------------------------------------------- PUBLIC ------------------------------------------->
 
 <cffunction name="init" hint="Constructor" access="public" returntype="JavaLoader" output="false">
@@ -275,7 +273,7 @@ Purpose:    Utlitity class for loading Java Classes
 			for(; counter lte len; counter = counter + 1)
 			{
 				dir = directories[counter];
-				directoryCopy(dir, path);
+				dirCopy(dir, path);
 			}
 
 			//then we compile it, and grab that jar
@@ -544,7 +542,7 @@ Copies a directory.
 @author Joe Rinehart (joe.rinehart@gmail.com)
 @version 1, July 27, 2005
 --->
-<cffunction name="directoryCopy" access="private" output="true">
+<cffunction name="dirCopy" access="private" output="true">
     <cfargument name="source" required="true" type="string">
     <cfargument name="destination" required="true" type="string">
     <cfargument name="nameconflict" required="true" default="overwrite">
@@ -562,7 +560,7 @@ Copies a directory.
         <cfif contents.type eq "file">
             <cffile action="copy" source="#arguments.source#/#name#" destination="#arguments.destination#/#name#" nameconflict="#arguments.nameConflict#">
         <cfelseif contents.type eq "dir">
-            <cfset directoryCopy(arguments.source & dirDelim & name, arguments.destination & dirDelim & name) />
+            <cfset dirCopy(arguments.source & dirDelim & name, arguments.destination & dirDelim & name) />
         </cfif>
     </cfloop>
 </cffunction>
