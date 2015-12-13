@@ -4,3 +4,11 @@ railo/3/error.cfm
 cfeclipse
 railo/3/railo-3.3.4.003.war
 cfmltags/cfantrunner/
+railo/4/railo-4.0.2.002.war
+railo/4/error.cfm
+railo/4/patches/4.0.3.000.rc
+railo/4/railo-4.0.4.001.war
+installer
+ant-lib
+launch4j
+izpack

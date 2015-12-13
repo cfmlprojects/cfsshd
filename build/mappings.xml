@@ -2,4 +2,6 @@
 <mappings>
   <mapping physical="@src.dir@/cfsshd" virtual="/cfsshd"/>
 <mapping physical="./../tests" virtual="/tests"/>
+<mapping physical="@ext.mappings.dir@/org.mxunit/core/2.1.1/mxunit" virtual="/mxunit"/>
+<mapping physical="./../tests" scmurl="" virtual="/physical"/>
 </mappings>

@@ -42,7 +42,7 @@ component {
 	SftpSubsystem = classLoader.create("org.apache.sshd.server.sftp.SftpSubsystem$Factory");
 	BogusPasswordAuthenticator = classLoader.create("BogusAuth");
 	EchoShellFactory = classLoader.create("EchoShellFactory");
-	jRailoAuth = classLoader.create("RailoAuthenticator");
+	jLuceeAuth = classLoader.create("LuceeAuthenticator");
 	WrappedFileSystemFactory = classLoader.create("WrappedFileSystemFactory");
 //		PAMPasswordAuthenticator = classLoader.create("org.apache.sshd.server.pam.PAMPasswordAuthenticator");
 	ProcessShellFactory = classLoader.create("org.apache.sshd.server.shell.ProcessShellFactory");
@@ -78,10 +78,10 @@ component {
 	        provider.setPath("hostkey.pem");
 	        server.sshd.setKeyPairProvider(provider);
 			// total hack to use CFC for authentication
-	        jRailoAuth = jRailoAuth.init();
-		        jRailoAuth.setAuthComponent(createObject(authenticator).init(),getPageContext());
-	        server.sshd.setPasswordAuthenticator(jRailoAuth);
-	        server.sshd.setPublicKeyAuthenticator(jRailoAuth);
+	        jLuceeAuth = jLuceeAuth.init();
+		        jLuceeAuth.setAuthComponent(createObject(authenticator).init(),getPageContext());
+	        server.sshd.setPasswordAuthenticator(jLuceeAuth);
+	        server.sshd.setPublicKeyAuthenticator(jLuceeAuth);
 	        server.sshd.setFileSystemFactory(WrappedFileSystemFactory.init());
 		}
 		sshd = server.sshd;

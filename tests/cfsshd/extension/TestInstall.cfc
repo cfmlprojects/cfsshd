@@ -4,7 +4,7 @@
   <cffunction name="setUp" returntype="void" access="public">
 		<cfset variables.extensionTag = "cfsshd" />
  		<cfset variables.Install = createObject("component","#variables.extensionTag#.extension.Install") />
-		<cfdirectory action="list" directory="/#variables.extensionTag#/../../dist/" name="files" sort="desc" />
+		<cfdirectory action="list" directory="/#variables.extensionTag#/../../dist/" name="files" sort="desc" filter="*.zip"/>
 		<cfset variables.extensionzip = "/#variables.extensionTag#/../../dist/#files.name[1]#" />
 		<cfset variables.defaultconfig = {"mixed":{"isBuiltInTag":true,"installTestPlugin":true}} />
 		<cfset request.adminType = "web" />
